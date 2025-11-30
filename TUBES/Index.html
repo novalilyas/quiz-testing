@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizMaster Pro</title>
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- LOGIN PAGE -->
+    <div class="page active" id="loginPage">
+      <div class="login-container">
+        <div class="login-box">
+          <div class="logo">🎯</div>
+          <h1>QuizMaster Pro</h1>
+          <p>Login untuk memulai tantangan quiz!</p>
+
+          <div class="input-group">
+            <label>Username</label>
+            <input
+              type="text"
+              id="usernameInput"
+              placeholder="Masukkan username"
+              maxlength="20"
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="emailInput" placeholder="Masukkan email" />
+          </div>
+
+          <button class="btn-primary" onclick="login()">
+            🚀 Mulai Petualangan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD PAGE -->
+    <div class="page" id="dashboardPage">
+      <div class="dashboard">
+        <div class="header">
+          <div class="user-info">
+            <div class="avatar" id="userAvatar">A</div>
+            <div class="user-details">
+              <h3 id="userName">User</h3>
+              <p id="userEmail">user@email.com</p>
+            </div>
+          </div>
+          <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-value" id="totalQuizzes">0</div>
+            <div class="stat-label">Quiz Selesai</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-value" id="avgScore">0%</div>
+            <div class="stat-label">Rata-Rata Skor</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🎖️</div>
+            <div class="stat-value" id="userRank">-</div>
+            <div class="stat-label">Peringkat</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-value" id="bestScore">0%</div>
+            <div class="stat-label">Skor Terbaik</div>
+          </div>
+        </div>
+
+        <div class="main-content">
+          <div class="quiz-section">
+            <h2>🎮 Mulai Quiz</h2>
+            <div class="quiz-card">
+              <h3>General Knowledge Quiz</h3>
+              <div class="quiz-info">
+                <span>📝 10 Pertanyaan</span>
+                <span>⏱ 30 detik/soal</span>
+                <span>🎯 Level: Medium</span>
+              </div>
+              <button class="btn-start" onclick="startQuiz()">
+                Mulai Quiz Sekarang →
+              </button>
+            </div>
+          </div>
+
+          <div class="leaderboard-section">
+            <h2>🏆 Leaderboard</h2>
+            <div id="leaderboardList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ PAGE -->
+    <div class="page" id="quizPage">
+      <div class="quiz-container">
+        <div class="quiz-box">
+          <div class="quiz-header">
+            <div>
+              <span style="color: #7f8c8d; font-size: 16px">
+                Pertanyaan <span id="currentQ">1</span>/<span id="totalQ"
+                  >10</span
+                >
+              </span>
+            </div>
+            <div class="timer" id="timer">
+              ⏱️ <span id="timeLeft">30</span>s
+            </div>
+          </div>
+
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+          </div>
+
+          <div class="question" id="question"></div>
+          <div id="options"></div>
+          <button class="btn-next" id="nextBtn" onclick="nextQuestion()">
+            Lanjut →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS PAGE -->
+    <div class="page" id="resultsPage">
+      <div class="results-container">
+        <div class="results-box">
+          <h2>🎉 Quiz Selesai!</h2>
+
+          <div class="score-circle">
+            <h3 id="finalScore">0%</h3>
+            <p id="scoreMessage">Bagus!</p>
+          </div>
+
+          <div class="results-stats">
+            <div class="result-stat">
+              <div class="result-stat-value" id="correctAnswers">0</div>
+              <div class="result-stat-label">Benar</div>
+            </div>
+            <div class="result-stat">
+              <div class="result-stat-value" id="wrongAnswers">0</div>
+              <div class="result-stat-label">Salah</div>
+            </div>
+            <div class="result-stat">
+              <div class="result-stat-value" id="totalTime">0s</div>
+              <div class="result-stat-label">Total Waktu</div>
+            </div>
+          </div>
+
+          <button class="btn-secondary" onclick="backToDashboard()">
+            📊 Dashboard
+          </button>
+          <button class="btn-secondary" onclick="startQuiz()">
+            🔄 Main Lagi
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOAD JS -->
+    <script src="bjir.js"></script>
+  </body>
+</html>
